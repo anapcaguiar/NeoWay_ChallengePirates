@@ -24,7 +24,8 @@ Passos para o desenvolvimento:
 
 ![image](https://user-images.githubusercontent.com/124132986/215990605-b781692d-ea23-4cd2-b0a0-cc033216afba.png)
 
-- Para extrair a tabela do estado, precisa-se identificar qual é a 'UF' e a 'Localidade'
+- Para extrair a tabela do estado, precisa-se identificar qual é a 'UF' e a 'Localidade'. 
+- Para isso foi realizado um loop para criar uma lista com os campos a serem pesquisados para cada estado.
 
-    post_fields = {"UF": estado, "Localidade" : " "}
+        => post_fields = {"UF": estado, "Localidade" : " "}
 
