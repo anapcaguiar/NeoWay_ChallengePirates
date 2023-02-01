@@ -1,9 +1,9 @@
+#-----------------------------------------------------------------#
+# 1 - Extraindo lista de estados do site dos correios             #
+#-----------------------------------------------------------------#
+
 #Declarando URL
 url = "https://www2.correios.com.br/sistemas/buscacep/resultadoBuscaFaixaCEP.cfm"
-
-#-----------------------------------------------------------------#
-#---------Extraindo lista de estados do site dos correios---------#
-#-----------------------------------------------------------------#
 
 #Importando bibliotecas
 from urllib.request import urlopen
@@ -35,7 +35,7 @@ indices = np.where(estados=='UF')
 estados = np.delete(estados, indices)
 
 #-----------------------------------------------------------------#
-#---------Criar lista de consulta de estado e localidade ---------#
+# 2 - Criar lista de consulta de estado e localidade              #
 #-----------------------------------------------------------------#
 
 ListaEstadosLocalidade = []
@@ -44,8 +44,8 @@ for estado in estados:
     ListaEstadosLocalidade.append(post_fields)
 
 #-----------------------------------------------------------------#
-#--------- Consultar faixa de cep de todos os estados    ----------#
-#---------  e concatenar dados em uma lista unica       ----------#
+# 3 - Consultar faixa de cep de todos os estados                  #
+#      e concatenar dados em uma lista unica                      #
 #-----------------------------------------------------------------#
 
 #Bibliotecas
@@ -55,7 +55,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 import pandas as pd
 
-#Lê a primeira página tabela gerada por estado e adiciona a uma lista
+#Lê a primeira página da tabela gerada por estado e adiciona a uma lista
 FaixaCEP_TodosEstados = []
 for post_fields in ListaEstadosLocalidade:
     fields = []
@@ -82,7 +82,7 @@ dfs_mun = [i for i in dfs if "Localidade" in i.columns.tolist()]
 dfs_mun = pd.concat(dfs_mun).reset_index(drop=True)
 
 #-----------------------------------------------------------------#
-#---------            Limpeza do dataframe               ---------#
+# 4 - Limpeza dos dados                                           #
 #-----------------------------------------------------------------#
 
 #Remover colunas desnecessárias
@@ -95,7 +95,7 @@ dfs_mun['ID'] = dfs_mun['Faixa de CEP'].str.split(" ", n=1, expand=True)[0]
 dfs_mun.drop_duplicates(subset ="ID", keep = False, inplace = True)
 
 #-----------------------------------------------------------------#
-#---------            Transformar em JSON                ---------#
+# 5 - Transformar em JSON                                         #
 #-----------------------------------------------------------------#
 
 #Transformar em json
