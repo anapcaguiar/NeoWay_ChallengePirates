@@ -8,16 +8,23 @@ Passos para o desenvolvimento:
     
 ![image](https://user-images.githubusercontent.com/124132986/215987235-21b59c22-9c06-4281-9377-d8fa1c914164.png)
 
-    a) Obteve-se as informações necessárias para o código, no caso 'class', através da opção 'inspecionar' do html
+- Obteve-se as informações necessárias para o código, no caso 'class', através da opção 'inspecionar' do html
     
-    ![image](https://user-images.githubusercontent.com/124132986/215989440-63185c06-5981-4f6c-bccb-d007eeb3ef18.png)
+![image](https://user-images.githubusercontent.com/124132986/215989440-63185c06-5981-4f6c-bccb-d007eeb3ef18.png)
 
-    b) Foram utilizadas as bibliotecas BeautifulSoup e request para extrair o conteudo html do site dos correios e o parser para particioná-lo. 
+- Foram utilizadas as bibliotecas BeautifulSoup e request para extrair o conteudo html do site dos correios e o parser para particioná-lo. 
     
-    c) Utilizou-se a biblioteca re para identificar o padrão da string e extrair somente a sigla dos estados.
+- Utilizou-se a biblioteca re para identificar o padrão da string e extrair somente a sigla dos estados.
     
-    d) Fez-se a limpeza da lista.
+- Fez-se a limpeza da lista.
 
 2 - Criar lista dos campos de pesquisas a serem inseridos no loop para extrair dados de pesquisa de todos os estados.
 
-![image](https://user-images.githubusercontent.com/124132986/215986848-d8334922-8680-4b2a-bdec-b26e1b4348ae.png)
+- A pesquisa é feita por estado e gera uma tabela tipo 'form' para cada estado.
+
+![image](https://user-images.githubusercontent.com/124132986/215990605-b781692d-ea23-4cd2-b0a0-cc033216afba.png)
+
+- Para extrair a tabela do estado, precisa-se identificar qual é a 'UF' e a 'Localidade'
+
+    post_fields = {"UF": estado, "Localidade" : " "}
+
