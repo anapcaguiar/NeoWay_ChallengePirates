@@ -29,3 +29,17 @@ Passos para o desenvolvimento:
 
         => post_fields = {"UF": estado, "Localidade" : " "}
 
+3 - Consultar faixa de cep de todos os estados e concatenar dados em uma lista unica.
+- Utilizou o loop para consultar cada estado, extrair a tabela da primeira página, adicionar todas as tabelas em uma única lista e posteriormente transformar em dataframe.
+- A solução desse problema está incompleta, pois coleta apenas a primeira página, ao invés de todas as páginas que forem geradas conforme a quantidade de faixa de CEP.
+- Tentei fazer um loop para ler o href de cada página, para assim coletar os dados de todas as páginas. Mas por ser um 'form', não consegui usar essa solução.
+- Fiquei bastante curiosa em como resolver essa parte do código. Poderiam me explicar depois? :)
+
+![image](https://user-images.githubusercontent.com/124132986/215993200-c0c43116-de2d-45ee-9ea6-ee1575861f5a.png)
+
+4 - Limpeza dos dados para atender as requisições do desafio, como:
+- Remoção de colunas desnecessárias;
+- Adição de coluna como identificador único;
+- Remoção de dados duplicados.
+
+5 - Transformar dataframe em JSON
